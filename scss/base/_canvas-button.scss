@@ -1,4 +1,16 @@
 
+ main button {
+     width: 30px;
+     height: 30px;
+     border-radius: 100%;
+     margin: 5px;
+ }
+
+ .button-flex {
+     display: flex;
+     justify-content: center;
+ }
+
 #black {
     background-color: $black;
 }
@@ -14,3 +26,4 @@
 #blue {
     background-color: $blue;
 }
+
