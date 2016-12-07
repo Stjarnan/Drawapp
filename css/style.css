@@ -1,2 +1,2 @@
-#black{background-color:#000}#green{background-color:#6f3}#red{background-color:#f22821}#blue{background-color:#4286f4}
+header{width:100%}header h1{text-align:center}main button{width:30px;height:30px;border-radius:100%;margin:5px}.button-flex{display:flex;justify-content:center}#black{background-color:#000}#green{background-color:#6f3}#red{background-color:#f22821}#blue{background-color:#4286f4}main{width:100%;height:100vh}#canvas{margin:40px auto;height:60%;width:60%}canvas{border:solid 2px black}
 /*# sourceMappingURL=style.css.map */
