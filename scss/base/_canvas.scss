@@ -1,11 +1,14 @@
+main {
+    width: 100%;
+    height: 100vh;
+}
+
 #canvas {
     margin: 40px auto;
-    height: 80%;
+    height: 60%;
     width: 60%;
 }
 
 canvas {
     border: solid 2px black;
-    width: 100%;
-    height: 100%;
 }
