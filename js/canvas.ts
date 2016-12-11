@@ -7,6 +7,9 @@ let positionY = new Array();
 let mouseDrag = new Array();
 let rect = canvas.getBoundingClientRect();
 let canvasDiv : any = document.getElementById('canvas'); 
+let button : any = document.getElementsByTagName('button');
+
+
 
 canvas.width = canvasDiv.offsetWidth;
 canvas.height = canvasDiv.offsetHeight;
@@ -19,16 +22,33 @@ function drawPosition(x, y, movement) {
 }
 
 
+function buttonEvents () {
+
+            Array.from(button).forEach( d => {
+                d.addEventListener('click', () => {
+                    Array.from(button).forEach((y) => {
+                       y.classList.remove('selected'); 
+                    });
+                    event.target.classList.add("selected");
+                    });
+             });
+        
+             
+        
+}
+
+
 function redraw () {
     // Clear the canvas
     ctx.clearRect(0, 0, ctx.width, ctx.height);
+
 
 
     ctx.strokeStyle = "black";
     ctx.lineJoin = "round";
     ctx.lineWidth = 2;
 
-    for( var i = 0; i < positionX.length; i++) {
+    for( let i = 0; i < positionX.length; i++) {
         ctx.beginPath();
 
         if(mouseDrag[i] && i) {
@@ -69,3 +89,5 @@ function redraw () {
         canvas.addEventListener("mouseleave", e => {
             draw = false;
         });
+
+        buttonEvents();

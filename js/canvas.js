@@ -6,12 +6,23 @@ var positionY = new Array();
 var mouseDrag = new Array();
 var rect = canvas.getBoundingClientRect();
 var canvasDiv = document.getElementById('canvas');
+var button = document.getElementsByTagName('button');
 canvas.width = canvasDiv.offsetWidth;
 canvas.height = canvasDiv.offsetHeight;
 function drawPosition(x, y, movement) {
     positionX.push(x);
     positionY.push(y);
     mouseDrag.push(movement);
+}
+function buttonEvents() {
+    Array.from(button).forEach(function (d) {
+        d.addEventListener('click', function () {
+            Array.from(button).forEach(function (y) {
+                y.classList.remove('selected');
+            });
+            event.target.classList.add("selected");
+        });
+    });
 }
 function redraw() {
     // Clear the canvas
@@ -50,3 +61,4 @@ canvas.addEventListener("mouseup", function (e) {
 canvas.addEventListener("mouseleave", function (e) {
     draw = false;
 });
+buttonEvents();
