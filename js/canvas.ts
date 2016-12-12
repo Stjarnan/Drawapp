@@ -5,9 +5,12 @@ let draw = false;
 let positionX = new Array();
 let positionY = new Array();
 let mouseDrag = new Array();
+let currentColor = new Array();
 let rect = canvas.getBoundingClientRect();
 let canvasDiv : any = document.getElementById('canvas'); 
 let button : any = document.getElementsByTagName('button');
+let color = "black";
+
 
 
 
@@ -19,6 +22,7 @@ function drawPosition(x, y, movement) {
     positionX.push(x);
     positionY.push(y);
     mouseDrag.push(movement);
+    currentColor.push(color);
 }
 
 
@@ -30,6 +34,17 @@ function buttonEvents () {
                        y.classList.remove('selected'); 
                     });
                     event.target.classList.add("selected");
+
+                    if (event.target.classList.contains('selected') && event.target.id == 'black') {
+                        color = "black";
+                    } else if (event.target.classList.contains('selected') && event.target.id == 'green') {
+                        color = "#66ff33";
+                    } else if (event.target.classList.contains('selected') && event.target.id == 'red') {
+                        color = "#f22821";
+                    } else if (event.target.classList.contains('selected') && event.target.id == 'blue') {
+                        color = "#4286f4";
+                    }
+
                     });
              });
         
@@ -43,8 +58,6 @@ function redraw () {
     ctx.clearRect(0, 0, ctx.width, ctx.height);
 
 
-
-    ctx.strokeStyle = "black";
     ctx.lineJoin = "round";
     ctx.lineWidth = 2;
 
@@ -60,6 +73,7 @@ function redraw () {
         ctx.lineTo(positionX[i], positionY[i]);
         ctx.closePath();
         ctx.stroke();
+        ctx.strokeStyle = currentColor[i];
     }
 
 }
